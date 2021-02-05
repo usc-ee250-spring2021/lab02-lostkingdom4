@@ -50,7 +50,7 @@ if __name__ == '__main__':
         # Calculate rotation in degrees (0 to 1023)
         degrees = round((voltage * full_angle) / grove_vcc, 2)
     	# Calculate the threshold distance(0 to 517)
-    	Threshold = int(degrees / full_angle * 517)
+        Threshold = int(degrees / full_angle * 517)
 
  
         print(grovepi.ultrasonicRead(PORT))
