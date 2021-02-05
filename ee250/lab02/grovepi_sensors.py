@@ -61,6 +61,7 @@ if __name__ == '__main__':
         print("Distance is ", distance)
         if distance < Threshold:
             setText("{}CM OBJ PRES\n{}CM".format(Threshold, distance))
+            setRGB(255,0,0)
         else:
             setText("{}CM \n{}CM".format(Threshold, distance))
     
