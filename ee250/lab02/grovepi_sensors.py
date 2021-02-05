@@ -34,6 +34,8 @@ grovepi.pinMode(potentiometer,"INPUT")
 # Full value of the rotary angle is 300 degrees, as per it's specs (0 to 300)
 full_angle = 1023
 adc_ref= 5
+# Vcc of the grove interface is normally 5v
+grove_vcc = 5
 
 if __name__ == '__main__':
     PORT = 4    # D4
