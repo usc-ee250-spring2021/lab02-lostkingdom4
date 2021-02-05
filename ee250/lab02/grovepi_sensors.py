@@ -38,6 +38,8 @@ adc_ref= 5
 # Vcc of the grove interface is normally 5v
 grove_vcc = 5
 
+refresh_flag = True
+
 if __name__ == '__main__':
     PORT = 4    # D4
 
@@ -61,7 +63,12 @@ if __name__ == '__main__':
         if distance < Threshold:
             setText_norefresh("{}CM OBJ PRES\n{}CM".format(Threshold, distance))
             setRGB(255,0,0)
+            refresh_flag = True
         else:
+            if refresh_flag:
+                setText("{}CM \n{}CM".format(Threshold, distance))
+                setRGB(0,255,0)
+                refresh_flag = False
             setText_norefresh("{}CM \n{}CM".format(Threshold, distance))
-            setRGB(0,255,0)
+
     
