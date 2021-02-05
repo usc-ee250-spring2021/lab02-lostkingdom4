@@ -27,6 +27,14 @@ import grovepi
 """This if-statement checks if you are running this python file directly. That 
 is, if you run `python3 grovepi_sensors.py` in terminal, this if-statement will 
 be true"""
+
+potentiometer = 0
+grovepi.pinMode(potentiometer,"INPUT")
+
+# Full value of the rotary angle is 300 degrees, as per it's specs (0 to 300)
+full_angle = 1023
+adc_ref= 5
+
 if __name__ == '__main__':
     PORT = 4    # D4
 
@@ -34,5 +42,15 @@ if __name__ == '__main__':
         #So we do not poll the sensors too quickly which may introduce noise,
         #sleep for a reasonable time of 200ms between each iteration.
         time.sleep(0.2)
+	sensor_value = grovepi.analogRead(potentiometer)
 
+	# Calculate voltage
+        voltage = round((float)(sensor_value) * adc_ref / 1023, 2)
+
+        # Calculate rotation in degrees (0 to 1023)
+        degrees = round((voltage * full_angle) / grove_vcc, 2)
+	# Calculate the threshold distance(0 to 517)
+	Threshold = int(degrees / full_angle * 517)
+
+ 
         print(grovepi.ultrasonicRead(PORT))
