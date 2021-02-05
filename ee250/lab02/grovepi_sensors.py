@@ -59,9 +59,9 @@ if __name__ == '__main__':
         print("Threshold is ", Threshold)
         print("Distance is ", distance)
         if distance < Threshold:
-            setText("{}CM OBJ PRES\n{}CM".format(Threshold, distance))
+            setText_norefresh("{}CM OBJ PRES\n{}CM".format(Threshold, distance))
             setRGB(255,0,0)
         else:
-            setText("{}CM \n{}CM".format(Threshold, distance))
+            setText_norefresh("{}CM \n{}CM".format(Threshold, distance))
             setRGB(0,255,0)
     
