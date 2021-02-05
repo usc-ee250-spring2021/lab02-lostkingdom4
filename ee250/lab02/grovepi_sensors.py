@@ -45,7 +45,6 @@ if __name__ == '__main__':
         #So we do not poll the sensors too quickly which may introduce noise,
         #sleep for a reasonable time of 200ms between each iteration.
         time.sleep(0.2)
-        setRGB(0,255,0)
         sensor_value = grovepi.analogRead(potentiometer)
 
 	# Calculate voltage
@@ -64,4 +63,5 @@ if __name__ == '__main__':
             setRGB(255,0,0)
         else:
             setText("{}CM \n{}CM".format(Threshold, distance))
+            setRGB(0,255,0)
     
