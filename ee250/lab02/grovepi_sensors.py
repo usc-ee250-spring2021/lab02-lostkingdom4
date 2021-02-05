@@ -55,6 +55,12 @@ if __name__ == '__main__':
         degrees = round((voltage * full_angle) / grove_vcc, 2)
     	# Calculate the threshold distance(0 to 517)
         Threshold = int(degrees / full_angle * 517)
+
+        distance = grovepi.ultrasonicRead(PORT)
         print("Threshold is ", Threshold)
-        setText("{}\n{}".format(grovepi.ultrasonicRead(PORT),Threshold))
-        print(grovepi.ultrasonicRead(PORT))
+        print("Distance is ", distance)
+        if distance < Threshold:
+            setText("{}CM OBJ PRES\n{}CM".format(Threshold, distance))
+        else:
+            setText("{}CM \n{}CM".format(Threshold, distance))
+    
