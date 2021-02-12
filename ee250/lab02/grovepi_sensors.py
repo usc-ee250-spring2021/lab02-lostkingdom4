@@ -1,6 +1,6 @@
 """ EE 250L Lab 02: GrovePi Sensors
 
-List team members here.
+Shukai Duan
 
 Insert Github repository link here.
 """
@@ -32,12 +32,6 @@ be true"""
 potentiometer = 0
 grovepi.pinMode(potentiometer,"INPUT")
 
-# Full value of the rotary angle is 300 degrees, as per it's specs (0 to 300)
-full_angle = 1023
-adc_ref= 5
-# Vcc of the grove interface is normally 5v
-grove_vcc = 5
-
 refresh_flag = True
 
 if __name__ == '__main__':
@@ -49,9 +43,9 @@ if __name__ == '__main__':
         time.sleep(0.2)
         sensor_value = grovepi.analogRead(potentiometer)
 
-    	# Calculate the threshold distance(0 to 1023)
+    	# Assign the threshold distance(0 to 1023)
         Threshold = sensor_value
-
+        # Assign the  distance(0 to 517)
         distance = grovepi.ultrasonicRead(PORT)
         print("Threshold is ", Threshold)
         print("Distance is ", distance)
