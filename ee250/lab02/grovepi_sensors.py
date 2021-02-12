@@ -48,15 +48,9 @@ if __name__ == '__main__':
         #sleep for a reasonable time of 200ms between each iteration.
         time.sleep(0.2)
         sensor_value = grovepi.analogRead(potentiometer)
-        print(sensor_value)
 
-	# Calculate voltage
-        voltage = round((float)(sensor_value) * adc_ref / 1023, 2)
-
-        # Calculate rotation in degrees (0 to 1023)
-        degrees = round((voltage * full_angle) / grove_vcc, 2)
-    	# Calculate the threshold distance(0 to 517)
-        Threshold = int(degrees / full_angle * 517)
+    	# Calculate the threshold distance(0 to 1023)
+        Threshold = sensor_value
 
         distance = grovepi.ultrasonicRead(PORT)
         print("Threshold is ", Threshold)
