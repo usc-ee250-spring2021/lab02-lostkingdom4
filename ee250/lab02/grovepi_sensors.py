@@ -2,7 +2,7 @@
 
 Shukai Duan
 
-Insert Github repository link here.
+git@github.com:usc-ee250-spring2021/lab02-lostkingdom4.git
 """
 
 """python3 interpreters in Ubuntu (and other linux distros) will look in a 
