@@ -48,6 +48,7 @@ if __name__ == '__main__':
         #sleep for a reasonable time of 200ms between each iteration.
         time.sleep(0.2)
         sensor_value = grovepi.analogRead(potentiometer)
+        print(sensor_value)
 
 	# Calculate voltage
         voltage = round((float)(sensor_value) * adc_ref / 1023, 2)
